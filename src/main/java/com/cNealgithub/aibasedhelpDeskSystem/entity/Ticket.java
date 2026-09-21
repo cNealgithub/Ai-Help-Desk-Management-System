@@ -23,8 +23,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique = true, nullable = false)
-    private String username;
-    @Lob
+    private String email;
     @Column(nullable = false)
     private String issue_summary;
     private String category;

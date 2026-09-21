@@ -38,7 +38,7 @@ public class Configurations {
                                 .builder(chatMemory)
                                 .build())
                 .defaultOptions(OllamaChatOptions.builder()
-                        .model("qwen2.5:3b ")
+                        .model("qwen2.5:3b")
                         .temperature(0.5)
                         .maxTokens(400))
                 .build();

@@ -15,12 +15,18 @@ public class TicketDbTools {
 
     @Tool(description = "Tool for creating and saving new ticket to database")
     public Ticket createAndSave(@ToolParam(description = "Ticket fields information required to create new ticket(object)") Ticket ticket) {
-        return ticketService.saveTicket(ticket);
+        try{
+            System.out.println("Going to create new ticket");
+            System.out.println(ticket);
+            return ticketService.saveTicket(ticket);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
-    @Tool(description = "Tool to find the Ticket by username from the database")
-    public Ticket getTicketFromUsername(@ToolParam(description = "the username whom the ticket belongs") String username) {
-        return ticketService.getTicketByUsername(username);
+    @Tool(description = "Tool to find the Ticket by email[email] from the database")
+    public Ticket getTicketFromEmail(@ToolParam(description = "the email of the user whom the ticket belongs") String email) {
+        return ticketService.getTicketByEmail(email);
     }
 
     @Tool(description = "Tool to find the Ticket by TicketId[id] from the database")

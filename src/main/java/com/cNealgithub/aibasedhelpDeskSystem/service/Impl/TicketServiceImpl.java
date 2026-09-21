@@ -16,15 +16,15 @@ public class TicketServiceImpl implements TicketService {
     @Override
     @Transactional
     public Ticket saveTicket(Ticket ticket) {
-        // the llm can generate ticketId , which our JPA dose not need as we use auto generation, so i am doing this:-
+        // the llm can generate ticketId , which our JPA does not need as we use auto generation, so I am doing this:-
         ticket.setId(null);
         return ticketsRepo.save(ticket);
     }
 
     @Override
-    public Ticket getTicketByUsername(String username) {
-        return ticketsRepo.findByUsername(username)
-                .orElseThrow(()-> new IllegalArgumentException("Ticket not found with username: " + username));
+    public Ticket getTicketByEmail(String email) {
+        return ticketsRepo.findByEmail(email)
+                .orElseThrow(()-> new IllegalArgumentException("Ticket not found with username: " + email));
     }
 
     @Override
