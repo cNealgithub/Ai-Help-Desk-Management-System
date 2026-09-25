@@ -16,7 +16,7 @@ import reactor.core.publisher.Flux;
 public class AiServiceImpl implements AiService {
 
     private final ChatClient chatClient;
-    @Value("classpath:helpdesk-system.st")
+    @Value("classpath:helpdesk-system1.st")
     private Resource systemPromptResource;
     private final TicketDbTools ticketDbTools;
 

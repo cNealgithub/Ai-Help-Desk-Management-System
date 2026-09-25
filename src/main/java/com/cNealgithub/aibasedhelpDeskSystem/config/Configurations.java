@@ -23,8 +23,7 @@ public class Configurations {
 
 //    AI ChatMemory Config
     ChatMemory chatMemory(JdbcChatMemoryRepository jdbcChatMemoryRepository){
-        return MessageWindowChatMemory
-                .builder()
+        return MessageWindowChatMemory.builder()
                 .chatMemoryRepository(jdbcChatMemoryRepository)
                 .maxMessages(10)
                 .build();

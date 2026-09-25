@@ -7,6 +7,8 @@ import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 @Component
 @RequiredArgsConstructor
 public class TicketDbTools {
@@ -32,5 +34,11 @@ public class TicketDbTools {
     @Tool(description = "Tool to find the Ticket by TicketId[id] from the database")
     public Ticket getTicketFromId(@ToolParam(description = "the unique identity (id) of the ticket") Long id) {
         return ticketService.getTicketById(id);
+    }
+
+    @Tool(description = "Tool to update existing Ticket in database")
+    public Ticket updateExistintTicket(@ToolParam(description = "The unique identity(id) of thr Ticket") Long id,
+                                       @ToolParam(description = "The map(java map collection) of updates consisting 'field' and 'object' as target update's field and value respectively")Map<String, Object> updates) {
+        return ticketService.updateExistingTicket(id, updates);
     }
 }
